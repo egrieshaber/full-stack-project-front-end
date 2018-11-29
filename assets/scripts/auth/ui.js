@@ -1,11 +1,27 @@
 'use strict'
 
 const store = require('../store.js')
+const showBandsTemplate = require('../templates/band-listing.handlebars')
+
+const getBandsSuccess = data => {
+  // console.log(data)
+  const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
+  // console.log('fuck')
+  // $('.content').html(showBandsHtml)
+  $('#get-bands-new').html(showBandsHtml)
+}
+
+const createBandsSuccess = data => {
+  console.log(data)
+  const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
+  // $('.content').html(showBandsHtml)
+  $('#create-new-bands').html(showBandsHtml)
+}
 
 const signUpSuccess = data => {
-  $('#message').text('Sign up Succesful!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#sign-up-message').text('Sign up Succesful!')
+  $('#sign-up-message').removeClass()
+  $('#sign-up-message').addClass('success')
   // console.log('signUpSuccess ran.  Data is :', data)
   $('#password').val('')
   $('#password2').val('')
@@ -13,58 +29,59 @@ const signUpSuccess = data => {
 }
 
 const signUpFailure = error => {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#sign-up-message').text('Error on sign up')
+  $('#sign-up-message').removeClass()
+  $('#sign-up-message').addClass('failure')
   console.error('signUpFailure ran.  Error is :', error)
 }
 
 const signInSuccess = data => {
   store.user = data.user
-  $('#message').text('Signed in Succesfuly!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#sign-in-message').text('Signed in Succesfuly!')
+  $('#sign-in-message').removeClass()
+  $('#sign-in-message').addClass('success')
   // console.log('signInSuccess ran.  Data is :', data)
   $('#password3').val('')
   $('#email2').val('')
 }
 
 const signInFailure = error => {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#sign-in-message').text('Error on sign in')
+  $('#sign-in-message').removeClass()
+  $('#sign-in-message').addClass('failure')
   console.error('signInFailure ran.  Error is :', error)
 }
 
 const signOutSuccess = data => {
   store.user = null
-  $('.grid').addClass('hidden')
-  $('#message').text('Signed out Succesfuly!')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#grid').addClass('hidden')
+  $('#sign-out-message').text('Signed out Succesfuly!')
+  $('#sign-out-message').removeClass()
+  $('#sign-out-message').addClass('success')
   // console.log('signOutSuccess ran.  Data is :', data)
   $('#password').val('')
   $('#email').val('')
 }
 
 const signOutFailure = error => {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#sign-out-message').text('Error on sign out')
+  $('#sign-out-message').removeClass()
+  $('#sign-out-message').addClass('failure')
   console.error('signOutFailure ran.  Error is :', error)
 }
 
 const changePasswordSuccess = data => {
-  $('#message').text('Changed password successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#change-password-message').text('Changed password successfully')
+  $('#change-password-message').removeClass()
+  $('#change-password-message').addClass('success')
   // console.log('changePasswordSuccess ran and nothing was returned :', data)
 }
 
 const changePasswordFailure = error => {
-  $('#message').text('Error on password, try again.')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#change-password-message').text('Error on password, try again.')
+  $('#change-password-message').removeClass()
+  $('#change-password-message').addClass('failure')
+  console.error('signOutFailure ran.  Error is :', error)
 }
 
 module.exports = {
@@ -75,5 +92,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  getBandsSuccess,
+  createBandsSuccess
 }

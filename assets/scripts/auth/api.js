@@ -3,6 +3,24 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
+const getBands = data => {
+  return $.ajax({
+    url: config.apiUrl + '/new_bands',
+    method: 'GET'
+  })
+}
+
+const createNewBands = data => {
+  return $.ajax({
+    url: config.apiUrl + '/new_bands',
+    method: 'POST',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const signUp = data => {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -45,5 +63,7 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  getBands,
+  createNewBands
 }

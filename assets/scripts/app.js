@@ -7,9 +7,12 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 $(() => {
+  // authEvents.addHandlers()
   // your JS code goes here
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#change-password').on('submit', authEvents.onChangePassword)
+  $('#get-bands').on('click', authEvents.onGetBands)
+  $('#create-new-band').on('submit', authEvents.onCreateNewBands)
 })

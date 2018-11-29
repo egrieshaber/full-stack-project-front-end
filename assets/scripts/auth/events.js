@@ -4,6 +4,23 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+const onGetBands = event => {
+  event.preventDefault()
+  // const data = getFormFields(event.target)
+  api.getBands()
+    .then(ui.getBandsSuccess)
+    .catch(ui.failure)
+}
+
+const onCreateNewBands = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  // const data = getFormFields(event.target)
+  api.createNewBands(data)
+    .then(ui.createBandsSuccess)
+    .catch(ui.failure)
+}
+
 const onSignUp = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -37,10 +54,19 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
+const addHandlers = () => {
+  $('#getBandsButton').on('click', onGetBands)
+  // $('#clearBooksButton').on('click', onClearBooks)
+  // $('.content').on('click', 'button', onDeleteBook)
+}
+
 module.exports = {
   onSignUp,
   getFormFields,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onGetBands,
+  addHandlers,
+  onCreateNewBands
 }

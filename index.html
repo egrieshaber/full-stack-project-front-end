@@ -1,54 +1,175 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-              <form id="sign-up" class="border">
-                <fieldset>
-                  <legend>Sign Up!</legend>
-                  <input type="text" name="credentials[email]" placeholder="Email" id="email"/>
-                  <input type="password" name="credentials[password]" placeholder="Password" id="password" />
-                  <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="password2"/>
-                  <input type="submit" value="Sign Up!" />
-                </fieldset>
-              </form>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-              <form id="sign-in" class="border">
-                <fieldset>
-                  <legend>Sign In!</legend>
-                  <input type="text" name="credentials[email]" placeholder="Email" id="email2" />
-                  <input type="password" name="credentials[password]" placeholder="Password" id="password3" />
-                  <input type="submit" value="Sign In!" />
-                </fieldset>
-              </form>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-              <form id="change-password" class="change-password-panel">
-                <fieldset>
-                  <legend>Change Password!</legend>
-                    <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
-                    <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
-                    <input type="submit" class="form-button" value="submit">
-                </fieldset>
-              </form>
+<body>
+  <h1 class="header">METAL HEDZ</h1>
 
-              <form id="sign-out" class="border">
-                <fieldset>
-                  <legend>Sign Out!</legend>
-                  <input type="submit" value="Sign Out!" />
-                </fieldset>
-              </form>
+  <!-- BUTTONS -->
 
-              <p id="message"></p>
+  <div class='signUpButton'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">sign up</button>
+  </div>
 
-    </body>
+  <div class='signInButton'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">sign in</button>
+  </div>
+
+  <div class='changePasswordButton'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePasswordModal">change password</button>
+  </div>
+
+  <div class='signOutButton'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signOutModal">sign out</button>
+  </div>
+
+
+  <!-- MODALS -->
+
+  <!-- SIGN UP MODAL -->
+  <div class="modal fade" id="signUpModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">sign up</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up" class="border">
+            <div id='sign-up-div'>
+              <fieldset>
+                <legend>Sign Up!</legend>
+                <input type="text" name="credentials[email]" placeholder="Email" id="email" />
+                <input type="password" name="credentials[password]" placeholder="Password" id="password" />
+                <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="password2" />
+                <input type="submit" value="Sign Up!" />
+                <p id="sign-up-message"></p>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SIGN IN MODAL -->
+  <div class="modal fade" id="signInModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signInModalLabel">sign in</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in" class="border">
+            <fieldset>
+              <legend>Sign In!</legend>
+              <input type="text" name="credentials[email]" placeholder="Email" id="email2" />
+              <input type="password" name="credentials[password]" placeholder="Password" id="password3" />
+              <input type="submit" value="Sign In!" />
+              <p id="sign-in-message"></p>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- change password modal -->
+  <div class="modal fade" id="changePasswordModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordModalLabel">change password</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form id="change-password" class="border">
+            <fieldset>
+              <legend>Change Password!</legend>
+              <input type="password" name="passwords[old]" placeholder="Old Password" autocomplete="off">
+              <input type="password" name="passwords[new]" placeholder="New Password" autocomplete="off">
+              <input type="submit" class="form-button" value="submit">
+              <p id="change-password-message"></p>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIGN OUT MODAL -->
+  <div class="modal fade" id="signOutModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signOutModalLabel">sign out</h5>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-out" class="border">
+            <fieldset>
+              <legend>Sign Out!</legend>
+              <input type="submit" value="Sign Out!" />
+              <p id="sign-out-message"></p>
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <button id="get-bands" type="button" class="btn btn-primary">get bands</button>
+
+  <div id="content">
+    <p class="content"></p>
+  </div>
+
+  <div id="get-bands-new">
+  </div>
+
+  <div class="create-new-band-div">
+    <form id="create-new-band" class="border">
+      <fieldset>
+        <legend>Create a band</legend>
+        <input type="text" name="new_band[band_name]" placeholder="your band name" autocomplete="off">
+        <input type="submit" class="form-button" value="submit">
+        <p id="create-new-band-message"></p>
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="create-new-bands">
+  </div>
+
+
+
+</body>
+
 </html>
