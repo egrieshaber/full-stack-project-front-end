@@ -21,6 +21,15 @@ const onCreateNewBands = event => {
     .catch(ui.failure)
 }
 
+const onUpdateNewBands = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  // const data = getFormFields(event.target)
+  api.updateNewBands(data)
+    .then(ui.updateBandsSuccess)
+    .catch(ui.failure)
+}
+
 const onSignUp = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -68,5 +77,6 @@ module.exports = {
   onChangePassword,
   onGetBands,
   addHandlers,
-  onCreateNewBands
+  onCreateNewBands,
+  onUpdateNewBands
 }

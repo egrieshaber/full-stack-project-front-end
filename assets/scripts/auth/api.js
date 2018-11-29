@@ -21,6 +21,17 @@ const createNewBands = data => {
   })
 }
 
+const updateNewBands = data => {
+  return $.ajax({
+    url: config.apiUrl + '/new_bands',
+    method: 'PATCH',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const signUp = data => {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
@@ -65,5 +76,6 @@ module.exports = {
   signOut,
   changePassword,
   getBands,
-  createNewBands
+  createNewBands,
+  updateNewBands
 }
