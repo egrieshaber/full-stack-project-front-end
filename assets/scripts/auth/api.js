@@ -22,9 +22,26 @@ const createNewBands = data => {
 }
 
 const updateNewBands = data => {
+  // get id out of Data
+  const id = data.new_bands.id
+  // console.log('data for new bands update is', data
+  // delete id before sending
+  console.log(data)
+  delete data.new_bands.id
   return $.ajax({
-    url: config.apiUrl + '/new_bands',
+    url: config.apiUrl + '/new_bands/' + id,
     method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+      data
+    }
+  })
+}
+
+const deleteNewBands = data => {
+  return $.ajax({
+    url: config.apiUrl + '/new_bands/' + data.new_bands.id,
+    method: 'DELETE',
     data,
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -77,5 +94,6 @@ module.exports = {
   changePassword,
   getBands,
   createNewBands,
-  updateNewBands
+  updateNewBands,
+  deleteNewBands
 }

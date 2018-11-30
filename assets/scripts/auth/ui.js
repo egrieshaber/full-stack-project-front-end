@@ -28,6 +28,16 @@ const updateBandsSuccess = data => {
   $('#create-new-bands').html(showBandsHtml)
   $('#create-new-band-message').text('Band updated successfully!')
 }
+
+const deleteBandsSuccess = data => {
+  // console.log(data)
+  const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
+  // console.log(data)
+  // $('.content').html(showBandsHtml)
+  $('#delete-new-bands').html(showBandsHtml)
+  $('#delete-new-band-message').text('Band deleteded successfully!')
+}
+
 const signUpSuccess = data => {
   $('#sign-up-message').text('Sign up Succesful!')
   $('#sign-up-message').removeClass()
@@ -105,6 +115,7 @@ module.exports = {
   changePasswordFailure,
   getBandsSuccess,
   createBandsSuccess,
-  updateBandsSuccess
+  updateBandsSuccess,
+  deleteBandsSuccess
 
 }

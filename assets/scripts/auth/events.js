@@ -30,6 +30,14 @@ const onUpdateNewBands = event => {
     .catch(ui.failure)
 }
 
+const onDeleteNewBands = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.deleteNewBands(data)
+    .then(ui.deleteBandsSuccess)
+    .catch(ui.failure)
+}
+
 const onSignUp = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -78,5 +86,6 @@ module.exports = {
   onGetBands,
   addHandlers,
   onCreateNewBands,
-  onUpdateNewBands
+  onUpdateNewBands,
+  onDeleteNewBands
 }

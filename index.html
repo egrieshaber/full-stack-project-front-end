@@ -172,8 +172,8 @@
     <form id="update-new-band" class="border">
       <fieldset>
         <legend>Update a band</legend>
-        <input type="number" name="new_band[id]" placeholder="your band name" autocomplete="off">
-        <input type="text" name="new_band[band_name]" placeholder="update your band name" autocomplete="off">
+        <input type="number" name="new_bands[id]" placeholder="band ID" autocomplete="off">
+        <input type="text" name="new_bands[band_name]" placeholder="update your band name" autocomplete="off">
         <input type="submit" class="form-button" value="submit">
         <p id="update-new-band-message"></p>
       </fieldset>
@@ -181,6 +181,20 @@
   </div>
 
   <div id="update-new-bands">
+  </div>
+
+  <div class="delete-new-band-div">
+    <form id="delete-new-band" class="border">
+      <fieldset>
+        <legend>Delete a band</legend>
+        <input name="new_bands[id]" type="text" placeholder="band ID" autocomplete="off">
+        <input type="submit" class="form-button" value="submit">
+        <p id="delete-new-band-message"></p>
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="delete-new-bands">
   </div>
 
 
