@@ -25,8 +25,8 @@ const updateBandsSuccess = data => {
   const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
   // console.log(data)
   // $('.content').html(showBandsHtml)
-  $('#create-new-bands').html(showBandsHtml)
-  $('#create-new-band-message').text('Band updated successfully!')
+  $('#update-new-bands').html(showBandsHtml)
+  $('#update-new-band-message').text('Band updated successfully!')
 }
 
 const deleteBandsSuccess = data => {

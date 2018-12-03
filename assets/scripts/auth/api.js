@@ -23,17 +23,17 @@ const createNewBands = data => {
 
 const updateNewBands = data => {
   // get id out of Data
-  const id = data.new_bands.id
+  const id = data.new_band.id
   // console.log('data for new bands update is', data
   // delete id before sending
   console.log(data)
-  delete data.new_bands.id
+  // delete data.new_band.id
   return $.ajax({
     url: config.apiUrl + '/new_bands/' + id,
     method: 'PATCH',
+    data,
     headers: {
-      Authorization: 'Token token=' + store.user.token,
-      data
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
