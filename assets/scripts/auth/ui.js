@@ -34,9 +34,25 @@ const deleteBandsSuccess = data => {
   const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
   // console.log(data)
   // $('.content').html(showBandsHtml)
-  $('#delete-new-bands').html(showBandsHtml)
+  $('#delete-new-band').html(showBandsHtml)
   $('#delete-new-band-message').text('Band deleteded successfully!')
 }
+
+// const deleteBandsSuccess = data => {
+//   $('#delete-new-band-message').text('delete bands successfully')
+//   $('.message').attr('class', 'message')
+//   $('.message').addClass('success')
+//   console.log('deleteDialogSuccess ran.')
+//   // emptyMessage()
+// }
+
+// const deleteDialogFailure = error => {
+//   $('.message').text('error on delete dial0g')
+//   $('.message').attr('class', 'message')
+//   $('.message').addClass('failure')
+//   console.error('deleteDialogFailure ran. Error is :', error)
+//   emptyMessage()
+// }
 
 const signUpSuccess = data => {
   $('#sign-up-message').text('Sign up Succesful!')

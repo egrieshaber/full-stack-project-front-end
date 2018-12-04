@@ -39,8 +39,10 @@ const updateNewBands = data => {
 }
 
 const deleteNewBands = data => {
+  const id = data.new_band.id
+  console.log(data)
   return $.ajax({
-    url: config.apiUrl + '/new_bands/' + data.new_bands.id,
+    url: config.apiUrl + '/new_bands/' + id,
     method: 'DELETE',
     data,
     headers: {
@@ -48,6 +50,21 @@ const deleteNewBands = data => {
     }
   })
 }
+
+// const deleteNewBands = data => {
+//   // get id out of data
+//   const id = data.new_band.id
+//   // delete id from data before sending it
+//   delete data.new_band.id
+//   return $.ajax({
+//     url: config.apiUrl + `/new_bands/${id}`,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {}
+//   })
+// }
 
 const signUp = data => {
   return $.ajax({
