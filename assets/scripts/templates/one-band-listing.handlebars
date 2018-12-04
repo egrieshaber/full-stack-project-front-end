@@ -1,0 +1,18 @@
+{{#each new_bands as |new_band|}}
+  {{log new_band}}
+
+  <div class="get-band-name-handlebars">
+       <section data-id="{{new_band.band_name}}">
+        <p>  {{#if new_band.band_name}}
+        {{new_band.band_name}}
+        {{new_band.id}}
+        {{new_band.metal_heds}}
+     {{else}}
+      No band provided.
+    {{/if}}
+  </p>
+  <!-- <button id= "get-bands-remove" type="click" class="btn btn-default">remove</button> -->
+    </section>
+    </div>
+
+{{/each}}
