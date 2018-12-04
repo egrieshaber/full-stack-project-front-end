@@ -50,6 +50,10 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signOutModal">sign out</button>
   </div>
 
+  <div class='getBandsButton'>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#getBandsModal">Current Bands List</button>
+  </div>
+
 
   <!-- MODALS -->
 
@@ -158,23 +162,47 @@
       </div>
     </div>
   </div>
+<!-- END MODALS -->
 
+<!-- GET ALL BANDS -->
+<div class="modal fade" id="getBandsModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="getBandsModalLabel">Band List</h5>
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <form id="get-bands" class="border">
+          <fieldset>
+            <legend>Band List</legend>
+            <button id="get-bands-button" type="button" class="btn btn-primary">get bands</button>
 
+            <div id="content">
+              <p class="content"></p>
+            </div>
 
-  <button id="get-bands" type="button" class="btn btn-primary">get bands</button>
-
-  <div id="content">
-    <p class="content"></p>
+            <div id="get-bands-new">
+            </div>
+            <p id="get-bands-message"></p>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div id="get-bands-new">
-  </div>
+<!-- BANDS -->
 
+<!-- CREATE -->
   <div class="create-new-band-div">
     <form id="create-new-band" class="border">
       <fieldset>
         <legend>Create a band</legend>
-        <input type="text" name="new_band[band_name]" placeholder="your band name" autocomplete="off">
+        <input type="text" name="new_band[band_name]" placeholder="your band name" autocomplete="off" id="create-credentials">
         <input type="submit" class="form-button" value="submit">
         <p id="create-new-band-message"></p>
       </fieldset>
@@ -184,12 +212,13 @@
   <div id="create-new-bands">
   </div>
 
+<!-- UPDATE -->
   <div class="update-new-band-div">
     <form id="update-new-band" class="border">
       <fieldset>
         <legend>Update a band</legend>
-        <input type="number" name="new_bands[id]" placeholder="band ID" autocomplete="off">
-        <input type="text" name="new_bands[band_name]" placeholder="update your band name" autocomplete="off">
+        <input type="number" name="new_band[id]" placeholder="band ID" autocomplete="off" id="update-credentials-id">
+        <input type="text" name="new_band[band_name]" placeholder="update your band name" autocomplete="off" id="update-credentials-band-name">
         <input type="submit" class="form-button" value="submit">
         <p id="update-new-band-message"></p>
       </fieldset>
@@ -199,11 +228,12 @@
   <div id="update-new-bands">
   </div>
 
+<!-- DELETE -->
   <div class="delete-new-band-div">
     <form id="delete-new-band" class="border">
       <fieldset>
         <legend>Delete a band</legend>
-        <input name="new_bands[id]" type="text" placeholder="band ID" autocomplete="off">
+        <input type="number" name="new_band[id]" placeholder="band ID" autocomplete="off" id="delete-credentials">
         <input type="submit" class="form-button" value="submit">
         <p id="delete-new-band-message"></p>
       </fieldset>
@@ -211,6 +241,21 @@
   </div>
 
   <div id="delete-new-bands">
+  </div>
+
+  <!-- GET ONE -->
+  <div class="get-one-new-band-div">
+    <form id="get-one-new-band" class="border">
+      <fieldset>
+        <legend>Get One Band By ID</legend>
+        <input type="number" name="new_band[id]" placeholder="band ID" autocomplete="off" id="get-one-credentials">
+        <input type="submit" class="form-button" value="submit">
+        <p id="get-one-new-band-message"></p>
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="get-one-new-bands">
   </div>
 
 

@@ -3,12 +3,25 @@
 const store = require('../store.js')
 const showBandsTemplate = require('../templates/band-listing.handlebars')
 
+const emptyMessage = () => {
+  setTimeout(function () {
+    $('#create-new-band-message').text('')
+    $('#update-new-band-message').text('')
+    $('#delete-new-band-message').text('')
+    $('#sign-up-message').text('')
+    $('#sign-in-message').text('')
+    $('#sign-out-message').text('')
+    $('#change-password-message').text('')
+  }, 1500)
+}
+
 const getBandsSuccess = data => {
   // console.log(data)
   const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
   // console.log('fuck')
   // $('.content').html(showBandsHtml)
   $('#get-bands-new').html(showBandsHtml)
+  emptyMessage()
 }
 
 const createBandsSuccess = data => {
@@ -18,6 +31,8 @@ const createBandsSuccess = data => {
   // $('.content').html(showBandsHtml)
   $('#create-new-bands').html(showBandsHtml)
   $('#create-new-band-message').text('Band created successfully!')
+  $('#create-credentials').val('')
+  emptyMessage()
 }
 
 const updateBandsSuccess = data => {
@@ -25,18 +40,50 @@ const updateBandsSuccess = data => {
   const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
   // console.log(data)
   // $('.content').html(showBandsHtml)
-  $('#create-new-bands').html(showBandsHtml)
-  $('#create-new-band-message').text('Band updated successfully!')
+  $('#update-new-bands').html(showBandsHtml)
+  $('#update-new-band-message').text('Band updated successfully!')
+  $('#update-credentials-id').val('')
+  $('#update-credentials-band-name').val('')
+  emptyMessage()
 }
 
 const deleteBandsSuccess = data => {
   // console.log(data)
+  // const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
+  // console.log(data)
+  // $('.content').html(showBandsHtml)
+  // $('#delete-new-band').html(showBandsHtml)
+  $('#delete-new-band-message').text('Band deleteded successfully!')
+  $('#delete-credentials').val('')
+  emptyMessage()
+}
+
+const getOneBandSuccess = data => {
+  // console.log(data)
   const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
   // console.log(data)
   // $('.content').html(showBandsHtml)
-  $('#delete-new-bands').html(showBandsHtml)
-  $('#delete-new-band-message').text('Band deleteded successfully!')
+  $('#get-one-new-bands').html(showBandsHtml)
+  $('#get-one-new-band-message').text('Band created successfully!')
+  $('#get-one-credentials').val('')
+  emptyMessage()
 }
+
+// const deleteBandsSuccess = data => {
+//   $('#delete-new-band-message').text('delete bands successfully')
+//   $('.message').attr('class', 'message')
+//   $('.message').addClass('success')
+//   console.log('deleteDialogSuccess ran.')
+//   // emptyMessage()
+// }
+
+// const deleteDialogFailure = error => {
+//   $('.message').text('error on delete dial0g')
+//   $('.message').attr('class', 'message')
+//   $('.message').addClass('failure')
+//   console.error('deleteDialogFailure ran. Error is :', error)
+//   emptyMessage()
+// }
 
 const signUpSuccess = data => {
   $('#sign-up-message').text('Sign up Succesful!')
@@ -46,6 +93,7 @@ const signUpSuccess = data => {
   $('#password').val('')
   $('#password2').val('')
   $('#email').val('')
+  emptyMessage()
 }
 
 const signUpFailure = error => {
@@ -53,6 +101,7 @@ const signUpFailure = error => {
   $('#sign-up-message').removeClass()
   $('#sign-up-message').addClass('failure')
   console.error('signUpFailure ran.  Error is :', error)
+  emptyMessage()
 }
 
 const signInSuccess = data => {
@@ -63,6 +112,7 @@ const signInSuccess = data => {
   // console.log('signInSuccess ran.  Data is :', data)
   $('#password3').val('')
   $('#email2').val('')
+  emptyMessage()
 }
 
 const signInFailure = error => {
@@ -70,6 +120,7 @@ const signInFailure = error => {
   $('#sign-in-message').removeClass()
   $('#sign-in-message').addClass('failure')
   console.error('signInFailure ran.  Error is :', error)
+  emptyMessage()
 }
 
 const signOutSuccess = data => {
@@ -81,6 +132,7 @@ const signOutSuccess = data => {
   // console.log('signOutSuccess ran.  Data is :', data)
   $('#password').val('')
   $('#email').val('')
+  emptyMessage()
 }
 
 const signOutFailure = error => {
@@ -88,12 +140,14 @@ const signOutFailure = error => {
   $('#sign-out-message').removeClass()
   $('#sign-out-message').addClass('failure')
   console.error('signOutFailure ran.  Error is :', error)
+  emptyMessage()
 }
 
 const changePasswordSuccess = data => {
   $('#change-password-message').text('Changed password successfully')
   $('#change-password-message').removeClass()
   $('#change-password-message').addClass('success')
+  emptyMessage()
   // console.log('changePasswordSuccess ran and nothing was returned :', data)
 }
 
@@ -102,6 +156,7 @@ const changePasswordFailure = error => {
   $('#change-password-message').removeClass()
   $('#change-password-message').addClass('failure')
   console.error('signOutFailure ran.  Error is :', error)
+  emptyMessage()
 }
 
 module.exports = {
@@ -116,6 +171,7 @@ module.exports = {
   getBandsSuccess,
   createBandsSuccess,
   updateBandsSuccess,
-  deleteBandsSuccess
+  deleteBandsSuccess,
+  getOneBandSuccess
 
 }

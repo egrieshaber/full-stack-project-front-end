@@ -23,31 +23,60 @@ const createNewBands = data => {
 
 const updateNewBands = data => {
   // get id out of Data
-  const id = data.new_bands.id
+  const id = data.new_band.id
   // console.log('data for new bands update is', data
   // delete id before sending
   console.log(data)
-  delete data.new_bands.id
+  // delete data.new_band.id
   return $.ajax({
     url: config.apiUrl + '/new_bands/' + id,
     method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token,
-      data
-    }
-  })
-}
-
-const deleteNewBands = data => {
-  return $.ajax({
-    url: config.apiUrl + '/new_bands/' + data.new_bands.id,
-    method: 'DELETE',
     data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
+
+const deleteNewBands = data => {
+  const id = data.new_band.id
+  // console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/new_bands/' + id,
+    method: 'DELETE',
+    data: {},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getOneBand = data => {
+  const id = data.new_band.id
+  return $.ajax({
+    url: config.apiUrl + '/new_bands/' + id,
+    method: 'GET',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// const deleteNewBands = data => {
+//   // get id out of data
+//   const id = data.new_band.id
+//   // delete id from data before sending it
+//   delete data.new_band.id
+//   return $.ajax({
+//     url: config.apiUrl + `/new_bands/${id}`,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {}
+//   })
+// }
 
 const signUp = data => {
   return $.ajax({
@@ -95,5 +124,6 @@ module.exports = {
   getBands,
   createNewBands,
   updateNewBands,
-  deleteNewBands
+  deleteNewBands,
+  getOneBand
 }
