@@ -40,10 +40,22 @@ const updateNewBands = data => {
 
 const deleteNewBands = data => {
   const id = data.new_band.id
-  console.log(data)
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + '/new_bands/' + id,
     method: 'DELETE',
+    data: {},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getOneBand = data => {
+  const id = data.new_band.id
+  return $.ajax({
+    url: config.apiUrl + '/new_bands/' + id,
+    method: 'GET',
     data,
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -112,5 +124,6 @@ module.exports = {
   getBands,
   createNewBands,
   updateNewBands,
-  deleteNewBands
+  deleteNewBands,
+  getOneBand
 }

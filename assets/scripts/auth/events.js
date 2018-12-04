@@ -39,6 +39,15 @@ const onDeleteNewBands = event => {
     .catch(ui.failure)
 }
 
+const onGetOneNewBand = event => {
+  event.preventDefault()
+  // const data = $('#delete-input').val()
+  const data = getFormFields(event.target)
+  api.getOneBand(data)
+    .then(ui.getOneBandSuccess)
+    .catch(ui.failure)
+}
+
 // const onDeleteNewBands = event => {
 //   event.preventDefault()
 //   const data = getFormFields(event.target)
@@ -102,5 +111,6 @@ module.exports = {
   addHandlers,
   onCreateNewBands,
   onUpdateNewBands,
-  onDeleteNewBands
+  onDeleteNewBands,
+  onGetOneNewBand
 }

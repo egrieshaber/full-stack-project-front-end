@@ -17,4 +17,5 @@ $(() => {
   $('#create-new-band').on('submit', authEvents.onCreateNewBands)
   $('#update-new-band').on('submit', authEvents.onUpdateNewBands)
   $('#delete-new-band').on('submit', authEvents.onDeleteNewBands)
+  $('#get-one-new-bands').on('submit', authEvents.onGetOneNewBand)
 })
