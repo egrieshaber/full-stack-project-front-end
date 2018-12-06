@@ -9,7 +9,7 @@ const onGetBands = event => {
   // const data = getFormFields(event.target)
   api.getBands()
     .then(ui.getBandsSuccess)
-    .catch(ui.failure)
+    .catch(ui.getBandsFailure)
 }
 
 const onCreateNewBands = event => {
@@ -18,7 +18,7 @@ const onCreateNewBands = event => {
   // const data = getFormFields(event.target)
   api.createNewBands(data)
     .then(ui.createBandsSuccess)
-    .catch(ui.failure)
+    .catch(ui.createBandsFailure)
 }
 
 const onUpdateNewBands = event => {
@@ -27,7 +27,7 @@ const onUpdateNewBands = event => {
   // const data = getFormFields(event.target)
   api.updateNewBands(data)
     .then(ui.updateBandsSuccess)
-    .catch(ui.failure)
+    .catch(ui.updateBandsFailure)
 }
 
 const onDeleteNewBands = event => {
@@ -36,17 +36,17 @@ const onDeleteNewBands = event => {
   const data = getFormFields(event.target)
   api.deleteNewBands(data)
     .then(ui.deleteBandsSuccess)
-    .catch(ui.failure)
+    .catch(ui.deleteBandsFailure)
 }
 
-const onGetOneNewBand = event => {
-  event.preventDefault()
-  // const data = $('#delete-input').val()
-  const data = getFormFields(event.target)
-  api.getOneBand(data)
-    .then(ui.getOneBandSuccess)
-    .catch(ui.failure)
-}
+// const onGetOneNewBand = event => {
+//   event.preventDefault()
+//   // const data = $('#delete-input').val()
+//   const data = getFormFields(event.target)
+//   api.getOneBand(data)
+//     .then(ui.getOneBandSuccess)
+//     .catch(ui.failure)
+// }
 
 // const onDeleteNewBands = event => {
 //   event.preventDefault()
@@ -111,6 +111,5 @@ module.exports = {
   addHandlers,
   onCreateNewBands,
   onUpdateNewBands,
-  onDeleteNewBands,
-  onGetOneNewBand
+  onDeleteNewBands
 }
