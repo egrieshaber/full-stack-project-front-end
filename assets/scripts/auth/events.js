@@ -16,9 +16,15 @@ const onCreateNewBands = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
   // const data = getFormFields(event.target)
-  api.createNewBands(data)
-    .then(ui.createBandsSuccess)
-    .catch(ui.createBandsFailure)
+  if ($('#create-credentials').val()) {
+    api.createNewBands(data)
+      .then(ui.createBandsSuccess)
+      .catch(ui.createBandsFailure)
+  } else {
+    console.log('must have band name')
+    $('#create-new-band-message').text('You must enter a band name!')
+    ui.emptyMessage()
+  }
 }
 
 const onUpdateNewBands = event => {

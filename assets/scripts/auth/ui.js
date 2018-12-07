@@ -235,6 +235,7 @@ module.exports = {
   getBandsFailure,
   createBandsFailure,
   updateBandsFailure,
-  deleteBandsFailure
+  deleteBandsFailure,
+  emptyMessage
 
 }
