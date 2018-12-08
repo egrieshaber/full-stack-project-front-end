@@ -1,113 +1,43 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+README
 
-# browser-template
+METAL HEDZ
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Description.
 
-## Installation
+  This app is a fun idea where the user is basically able to create new "fantasy" bands and also be able to add members from an existing database or create their own.
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
-1. Follow the instructions on your new repository's setup page. For details on
-   how to push to Github, refer to the section on Github entitled "…or push an existing
-   repository from the command line." Further documentation can be found [here](https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/).
+Process.
 
-## Structure
+  I began this project by reviewing the requirements and talking through some basic ideas/concepts with my classamtes and instructors.  Then, I began to build a Rails API, after which I constructed a front end using JavaScript.  I've also used HTML to layout the style of the page.  I am currently only achieving the minimal viable product and have not successfully been able to meet my personal goals for this project.  I plan to neaten the look of the front end using CSS and also need to join a second table of band members in order to be added to the bands which the user is creating.
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/app.js`](assets/scripts/app.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+Wireframe: https://projects.invisionapp.com/freehand/document/Olx6fQwaz
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`assets/scripts/config.js`](assets/scripts/config.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
+ERD: https://imgur.com/ecHjpaX
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+User Stories.
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+  - As a user, I want to be able to register with appropriate authorization
+  - As a user, I want to be able to click a button and utilize simple forms to sign up, sign in, change password, and sign out.
+  - As a user, I want to be able to create new bands with unique names via a submission form.
+  - As a user, I want to be able to update and delete my own bands, after they have been created.
+  - As a user, I want to be able to create new band members,
+  - As a user, I want to be able to assign first name, last name, instrument, and band name perameters.
+  - As a user, I want to be able to select existing band members and add them to new bands that I have created.
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Technologies Used.
 
-## Adding Images
+  HTML, CSS, JavaScript, jQuery, AJAX, Ruby, Ruby On Rails, Handlebars
 
-To add images to your project, you must store them in the `public` directory.
-To use the image in HTML or CSS, write the path to the image like this:
+Unsolved Issues.
 
-```html
-<img src="public/cat.jpg">
-```
-or
-```css
-#my-cool-div {
-  background-image: url('public/cat.jpg')
-}
-```
+  - I have not yet been able to attach the second database for band members to the bands database via foreign keys.
+  - I have not yet been able to create new band members with respective parameters on the client end.
+  - I have a lot of unfinished styling that I plan to achieve with CSS/SASS.
+  - I also plan to adjust the layout via HTML and add some images.
 
-Note that there's no `./` or `/` in front of `public/filename.jpg`.
 
-## Adding Fonts
+Deployed Client site: https://egrieshaber.github.io/full-stack-project-front-end/
 
-To add custom fonts to your app, you can either use a CDN like Google Fonts, or
-you can download the fonts and save them in the `public` directory. If you use
-the former method, follow the directions on the website providing the fonts.
+Deployed Server: https://metalhedz.herokuapp.com/
 
-For local fonts, put the files in `public`, and then import and use them in a
-`.scss` file like this:
-
-```scss
-@font-face {
-  font-family: 'Nature Beauty';
-  src: url('public/Nature-Beauty.ttf') format('truetype');
-}
-
-.element-with-custom-font {
-  font-family: 'Nature Beauty';
-}
-```
-
-## Tasks
-
-Developers should run these often!
-
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Server Repo: https://github.com/egrieshaber/full-stack-project
