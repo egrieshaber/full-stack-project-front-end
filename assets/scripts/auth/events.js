@@ -21,7 +21,7 @@ const onCreateNewBands = event => {
       .then(ui.createBandsSuccess)
       .catch(ui.createBandsFailure)
   } else {
-    console.log('must have band name')
+    // console.log('must have band name')
     $('#create-new-band-message').text('You must enter a band name!')
     ui.emptyMessage()
   }
