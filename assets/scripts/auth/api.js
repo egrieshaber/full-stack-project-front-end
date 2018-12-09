@@ -6,7 +6,11 @@ const store = require('../store.js')
 const getBands = data => {
   return $.ajax({
     url: config.apiUrl + '/new_bands',
-    method: 'GET'
+    method: 'GET',
+    data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -26,7 +30,7 @@ const updateNewBands = data => {
   const id = data.new_band.id
   // console.log('data for new bands update is', data
   // delete id before sending
-  console.log(data)
+  // console.log(data)
   // delete data.new_band.id
   return $.ajax({
     url: config.apiUrl + '/new_bands/' + id,

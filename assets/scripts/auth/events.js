@@ -6,8 +6,8 @@ const ui = require('./ui.js')
 
 const onGetBands = event => {
   event.preventDefault()
-  // const data = getFormFields(event.target)
-  api.getBands()
+  const data = getFormFields(event.target)
+  api.getBands(data)
     .then(ui.getBandsSuccess)
     .catch(ui.getBandsFailure)
 }

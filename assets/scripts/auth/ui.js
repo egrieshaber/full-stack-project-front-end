@@ -29,7 +29,6 @@ const getBandsSuccess = data => {
 const getBandsFailure = error => {
   // console.log(data)
   // const showBandsHtml = showBandsTemplate({new_bands: data.new_bands})
-  // console.log('fuck')
   // $('.content').html(showBandsHtml)
   // $('#get-bands-new').html(showBandsHtml)
   console.error('getBandsFailure ran.  Error is :', error)
